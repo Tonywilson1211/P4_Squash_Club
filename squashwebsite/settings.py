@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["8000-tonywilson1211-p4-squash-6hk7gce0ie.us2.codeanyapp.com"]
+ALLOWED_HOSTS = ['squash.herokuapp.com', '8000-tonywilson1211-p4-squash-6hk7gce0ie.us2.codeanyapp.com']
 
 
 # Application definition
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_summernote',
     'crispy_forms',
+    'squash',
 ]
 
 MIDDLEWARE = [
