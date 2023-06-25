@@ -14,7 +14,7 @@ class CommentAdmin(SummernoteModelAdmin):
 class ClubAdmin(admin.ModelAdmin):
 
     list_display = ('club_name', 'created_on')
-
+    
 
 
 
