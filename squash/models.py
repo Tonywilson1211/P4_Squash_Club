@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-STATUS = ((0, "Draft"), (1, "Published"))
-
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comment")
@@ -20,3 +18,16 @@ class Comment(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
+
+
+class Club(models.Model):
+    club_name = models.CharField(max_length=20, unique=True)
+    slug = models.SlugField(max_length=30, unique=True)
+    club_owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='club')
+    created_on = models.DateTimeField(auto_now_add=True)
+    featured_image = CloudinaryField('image', default='placeholder')
+
+    class Meta:
+        ordering = ['created_on']
+
+
