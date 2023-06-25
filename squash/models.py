@@ -7,9 +7,8 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comment")
-    email = models.EmailField()
     updated_on = models.DateTimeField(auto_now=True)
-    body = models.TextField()
+    content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name="comment_likes", blank=True)
 
@@ -17,9 +16,7 @@ class Comment(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return f"Comment {self.body} by {self.name}"
+        return f"Comment {self.content} by {self.name}"
 
     def number_of_likes(self):
         return self.likes.count()
-
-
